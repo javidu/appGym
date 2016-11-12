@@ -1,5 +1,9 @@
-angular.module('starter.services',['ngResource'])
+angular.module('app.services', [])
 
-.factory('Session',function($resource){
-	return $resource('http://localhost:3000/dishes/:id');
-});
+.factory('BlankFactory', [function(){
+
+}])
+
+.service('BlankService', [function(){
+
+}]);
