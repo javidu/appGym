@@ -1,32 +1,46 @@
 <ion-view title="Registrar Usuario" id="page6">
-  <ion-content padding="true" class="has-header">
+    <ion-content padding="true" class="has-header" ng-controller="registrarUsuarioCtrl">
     <form id="registrarUsuario-form2" class="list">
       <ion-list id="registrarUsuario-list3">
-        <label class="item item-input" id="registrarUsuario-input3">
+          <label class="item item-input" id="registrarUsuario-input3">
           <span class="input-label">Nombre</span>
-          <input type="text" placeholder="">
+          <input type="text" placeholder="Digite su nombre"  ng-model="registrarUsuario.nombre">
+        </label>
+        <label class="item item-input" id="registrarUsuario-input8">
+          <span class="input-label">Correo</span>
+          <input type="email" placeholder="Correo electronico" ng-model="registrarUsuario.correo">
         </label>
         <label class="item item-input" id="registrarUsuario-input4">
           <span class="input-label">Edad</span>
-          <input type="text" placeholder="">
+          <input type="number" placeholder="Años de edad" ng-model="registrarUsuario.edad">
         </label>
         <label class="item item-input" id="registrarUsuario-input5">
           <span class="input-label">Altura</span>
-          <input type="text" placeholder="">
+          <input type="text" placeholder="Digite la altura (metros.cm)" ng-model="registrarUsuario.altura">
         </label>
         <label class="item item-input" id="registrarUsuario-input6">
           <span class="input-label">Peso</span>
-          <input type="text" placeholder="">
+          <input type="number" placeholder="Digite su peso" ng-model="registrarUsuario.peso">
         </label>
         <label class="item item-select" id="registrarUsuario-select1">
           <span class="input-label">Contextura</span>
-          <select>
+          <select ng-model="registrarUsuario.contextura">
             <option>Delgada</option>
             <option>Corpulenta</option>
           </select>
         </label>
+          <label class="item item-input" id="registrarUsuario-input2">
+          <span class="input-label">Contraseña</span>
+          <input type="password" placeholder="Digite contraseña" ng-model="registrarUsuario.clave">
+        </label>
+        <label class="item item-input" id="registrarUsuario-input7">
+          <span class="input-label">Repita contraseña</span>
+          <input type="password" placeholder="Repita la contraseña" ng-model="registrarUsuario.reclave">
+        </label>
       </ion-list>
-      <a ui-sref="opciones" id="registrarUsuario-button3" class="button button-balanced  button-block">Registrar</a>
+      <button ui-sref="opciones" id="registrarUsuario-button3" class="button button-balanced  button-block" ng-disabled=" !registrarUsuario.correo ||  
+                !registrarUsuario.nombre || !registrarUsuario.edad || !registrarUsuario.peso || !registrarUsuario.clave
+                || !registrarUsuario.reclave || !registrarUsuario.altura || !registrarUsuario.contextura" ng-click="registrarUsuario()">Registrarse</button>
     </form>
   </ion-content>
 </ion-view>
